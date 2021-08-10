@@ -8,18 +8,18 @@ public static String[][] spielFeld = new String[3][3];
 
 
     public static void main(String[] args) {
-
+    for (int i = 0; i < 3)
         Scanner scanner = new Scanner(System.in);
 
         Boolean spielen = true;
         while (spielen) {
             spieler1(scanner);
-            System.out.println( "  A       B       C       ");
-            System.out.println( spielFeld[0][0] + "  |  " + spielFeld[1][0]   + "  |  " + spielFeld[2][0] );
-            System.out.println("--------------------");
-            System.out.println( spielFeld[0][1]  + "  |  " + spielFeld[1][1]   + "  |  " + spielFeld[2][1] );
-            System.out.println("--------------------");
-            System.out.println( spielFeld[0][2]  + "  |  " + spielFeld[1][2]   + "  |  " + spielFeld[2][2] );
+            System.out.println( "    A         B         C       ");
+            System.out.println("1 " + spielFeld[0][0] + "  |  " + spielFeld[1][0]   + "  |  " + spielFeld[2][0] );
+            System.out.println("  --------------------");
+            System.out.println("2 " + spielFeld[0][1]  + "  |  " + spielFeld[1][1]   + "  |  " + spielFeld[2][1] );
+            System.out.println("  --------------------");
+            System.out.println("3 " + spielFeld[0][2]  + "  |  " + spielFeld[1][2]   + "  |  " + spielFeld[2][2] );
             spieler1(scanner);
 
 

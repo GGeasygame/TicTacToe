@@ -4,20 +4,21 @@ import java.util.Scanner;
 import java.util.jar.JarOutputStream;
 
 public class Main {
-public static String[][] spielFeld;
+public static String[][] spielFeld = new String[3][3];
 
 
     public static void main(String[] args) {
-        String[][] spielFeld = new String[3][3];
+
         Scanner scanner = new Scanner(System.in);
 
         Boolean spielen = true;
         while (spielen) {
             spieler1(scanner);
+            System.out.println( "  A       B       C       ");
             System.out.println( spielFeld[0][0] + "  |  " + spielFeld[1][0]   + "  |  " + spielFeld[2][0] );
-            System.out.println("---------------------------------------");
+            System.out.println("--------------------");
             System.out.println( spielFeld[0][1]  + "  |  " + spielFeld[1][1]   + "  |  " + spielFeld[2][1] );
-            System.out.println("---------------------------------------");
+            System.out.println("--------------------");
             System.out.println( spielFeld[0][2]  + "  |  " + spielFeld[1][2]   + "  |  " + spielFeld[2][2] );
             spieler1(scanner);
 
@@ -41,8 +42,10 @@ public static String[][] spielFeld;
         } else {
             eingabe1Int = 2;
         }
-        spielFeld[eingabe1Int][eingabe2 - 1]= "0";
 
+
+        spielFeld[eingabe1Int][eingabe2 - 1]= "0";
+        System.out.println(eingabe2 - 1);
 
 
 

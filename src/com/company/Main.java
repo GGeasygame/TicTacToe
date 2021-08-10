@@ -63,29 +63,24 @@ public static String[][] spielFeld = new String[3][3];
         {
             char Winner = ' ';
 
-            // Check if X wins
-            if (posn[1] == 'X' && posn[2] == 'X' && posn[3] == 'X') Winner = 'X';
-            if (posn[4] == 'X' && posn[5] == 'X' && posn[6] == 'X') Winner = 'X';
-            if (posn[7] == 'X' && posn[8] == 'X' && posn[9] == 'X') Winner = 'X';
-            if (posn[1] == 'X' && posn[4] == 'X' && posn[7] == 'X') Winner = 'X';
-            if (posn[2] == 'X' && posn[5] == 'X' && posn[8] == 'X') Winner = 'X';
-            if (posn[3] == 'X' && posn[6] == 'X' && posn[9] == 'X') Winner = 'X';
-            if (posn[1] == 'X' && posn[5] == 'X' && posn[9] == 'X') Winner = 'X';
-            if (posn[3] == 'X' && posn[5] == 'X' && posn[7] == 'X') Winner = 'X';
-            if (Winner == 'X' )
-            {System.out.println("Player1 wins the game." );
+
+            if (spielFeld[0][0] == "0" && spielFeld[0][1] == "0" && spielFeld[0][2] == "0") Winner = "0";
+            if (spielFeld[1][0] == "0" && spielFeld[1][1] == "0" && spielFeld[1][2] == "0") Winner = "0";
+            if (spielFeld[2][0] == "0" && spielFeld[2][1] == "0" && spielFeld[2][2] == "0") Winner = "0";
+            if (spielFeld[0][0] == "0" && spielFeld[1][0] == "0" && spielFeld[2][0] == "0") Winner = "0";
+            if (spielFeld[0][0] == "0" && spielFeld[0][1] == "0" && spielFeld[0][2] == "0") Winner = "0";
+            if (spielFeld[0][1] == "0" && spielFeld[1][1] == "0" && spielFeld[2][1] == "0") Winner = "0";
+            if (spielFeld[0][0] == "0" && spielFeld[0][1] == "0" && spielFeld[0][2] == "0") Winner = "0";
+            if (spielFeld[0][0] == "0" && spielFeld[0][1] == "0" && spielFeld[0][2] == "0") Winner = "0";
+
+            if (Winner == "0" )
+            {System.out.println("Spieler 1 hat gewonnen!" );
                 return Winner;
             }
 
             // Check if O wins
-            if (posn[1] == 'O' && posn[2] == 'O' && posn[3] == 'O') Winner = 'O';
-            if (posn[4] == 'O' && posn[5] == 'O' && posn[6] == 'O') Winner = 'O';
-            if (posn[7] == 'O' && posn[8] == 'O' && posn[9] == 'O') Winner = 'O';
-            if (posn[1] == 'O' && posn[4] == 'O' && posn[7] == 'O') Winner = 'O';
-            if (posn[2] == 'O' && posn[5] == 'O' && posn[8] == 'O') Winner = 'O';
-            if (posn[3] == 'O' && posn[6] == 'O' && posn[9] == 'O') Winner = 'O';
-            if (posn[1] == 'O' && posn[5] == 'O' && posn[9] == 'O') Winner = 'O';
-            if (posn[3] == 'O' && posn[5] == 'O' && posn[7] == 'O') Winner = 'O';
+            if (po[1] == 'O' && posn[2] == 'O' && posn[3] == 'O') Winner = 'O';
+
             if (Winner == 'O' )
             {
                 System.out.println( "Player2 wins the game." );

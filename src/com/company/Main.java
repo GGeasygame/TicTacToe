@@ -4,18 +4,20 @@ import java.util.Scanner;
 import java.util.jar.JarOutputStream;
 
 public class Main {
-public static int var1 = 1;
+public static String[][] spielFeld;
+
+
     public static void main(String[] args) {
-        int[] spielFeld = new int[9];
+        String[][] spielFeld = new String[3][3];
         Scanner scanner = new Scanner(System.in);
 
         Boolean spielen = true;
         while (spielen) {
-            System.out.println( var1 + "  |  " + var2  + "  |  " + var3);
+            System.out.println( spielFeld[0][0] + "  |  " + spielFeld[1][0]   + "  |  " + spielFeld[2][0] );
             System.out.println("---------------------------------------");
-            System.out.println( var4 + "  |  " + var5  + "  |  " + var6);
+            System.out.println( spielFeld[0][1]  + "  |  " + spielFeld[1][1]   + "  |  " + spielFeld[2][1] );
             System.out.println("---------------------------------------");
-            System.out.println( var7 + "  |  " + var8  + "  |  " + var9);
+            System.out.println( spielFeld[0][2]  + "  |  " + spielFeld[1][2]   + "  |  " + spielFeld[2][2] );
             spieler1(spielFeld, scanner);
 
 
@@ -24,11 +26,12 @@ public static int var1 = 1;
 
         }
     }
-    public static int spieler1(int[] spielFeld, Scanner scanner){
+    public static int spieler1(String[][] spielFeld, Scanner scanner){
 
         System.out.println("Wählen Sie das Eingabefeld aus.");
-        int eingabe1 = scanner.nextInt();
-        spielFeld[eingabe1]= 1;
+        String eingabe1 = scanner.next();
+        String eingabe2 = scanner.next();
+        spielFeld[eingabe1]= "0";
 
 
 

@@ -50,25 +50,23 @@ public static String[][] spielFeld = new String[3][3];
     public static void spieler1(Scanner scanner){
         boolean okay = false;
         do {
-            okay = false;
             System.out.println("Spieler 1: Wählen Sie Ihre Spalte aus.");
             String eingabe1 = scanner.next();
             System.out.println("Wählen Sie Ihre Zeile aus.");
             int eingabe2 = scanner.nextInt();
             int eingabe1Int = 0;
-            if (eingabe1.equalsIgnoreCase("a") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0"))) {
-                if (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X")) {
-                    eingabe1Int = 0;
-                }
-            } else if (eingabe1.equalsIgnoreCase("b") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+            if (eingabe1.equalsIgnoreCase("a")) {
+                eingabe1Int = 0;
+                System.out.println("abcd1");
+            } else if (eingabe1.equalsIgnoreCase("b")) {
                 eingabe1Int = 1;
-            } else if (eingabe1.equalsIgnoreCase("c") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+            } else if (eingabe1.equalsIgnoreCase("c")) {
                 eingabe1Int = 2;
-            } else {
-                System.out.println("Dieses Feld ist schon besetzt, bitte wählen Sie ein anderes.");
-                okay = true;
             }
-            spielFeld[eingabe1Int][eingabe2 - 1]= "0";
+            okay = platzpruefung(eingabe1Int, eingabe2);
+            if (!okay) {
+                spielFeld[eingabe1Int][eingabe2 - 1] = "0";
+            }
         } while (okay);
 
 
@@ -76,24 +74,34 @@ public static String[][] spielFeld = new String[3][3];
     public static void spieler2(Scanner scanner){
         boolean okay = false;
         do {
-            okay = false;
             System.out.println("Spieler 2: Wählen Sie Ihre Spalte aus.");
             String eingabe1 = scanner.next();
             System.out.println("Wählen Sie Ihre Zeile aus.");
             int eingabe2 = scanner.nextInt();
             int eingabe1Int = 0;
-            if (eingabe1.equalsIgnoreCase("a") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+            if (eingabe1.equalsIgnoreCase("a")) {
                 eingabe1Int = 0;
-            } else if (eingabe1.equalsIgnoreCase("b") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+                System.out.println("abcd");
+            } else if (eingabe1.equalsIgnoreCase("b")) {
                 eingabe1Int = 1;
-            } else if (eingabe1.equalsIgnoreCase("c") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+            } else if (eingabe1.equalsIgnoreCase("c")) {
                 eingabe1Int = 2;
-            } else {
-                System.out.println("Dieses Feld ist schon besetzt, bitte wählen Sie ein anderes.");
-                okay = true;
             }
-            spielFeld[eingabe1Int][eingabe2 - 1]= "X";
+            okay = platzpruefung(eingabe1Int, eingabe2);
+            if (!okay) {
+                spielFeld[eingabe1Int][eingabe2 - 1] = "X";
+            }
         } while (okay);
+    }
+    public static boolean platzpruefung(int eingabe1Int, int eingabe2) {
+        System.out.println("hi");
+        if (Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains(" ")) {
+            System.out.println("wieso");
+            return false;
+        } else {
+            System.out.println("Feld ist schon besetzt, wählen Sie ein neues Feld.");
+            return true;
+        }
     }
 
     public static Boolean ueberpruefung(Boolean spielen) {

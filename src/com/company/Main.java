@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.Scanner;
-import java.util.jar.JarOutputStream;
+import java.util.Arrays;
 
 public class Main {
 public static String[][] spielFeld = new String[3][3];
@@ -48,42 +48,52 @@ public static String[][] spielFeld = new String[3][3];
         }
     }
     public static void spieler1(Scanner scanner){
+        boolean okay = false;
+        do {
+            okay = false;
+            System.out.println("Spieler 1: Wählen Sie Ihre Spalte aus.");
+            String eingabe1 = scanner.next();
+            System.out.println("Wählen Sie Ihre Zeile aus.");
+            int eingabe2 = scanner.nextInt();
+            int eingabe1Int = 0;
+            if (eingabe1.equalsIgnoreCase("a") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0"))) {
+                if (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X")) {
+                    eingabe1Int = 0;
+                }
+            } else if (eingabe1.equalsIgnoreCase("b") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+                eingabe1Int = 1;
+            } else if (eingabe1.equalsIgnoreCase("c") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+                eingabe1Int = 2;
+            } else {
+                System.out.println("Dieses Feld ist schon besetzt, bitte wählen Sie ein anderes.");
+                okay = true;
+            }
+            spielFeld[eingabe1Int][eingabe2 - 1]= "0";
+        } while (okay);
 
-        System.out.println("Spieler 1: Wählen Sie Ihre Spalte aus.");
-        String eingabe1 = scanner.next();
-        System.out.println("Wählen Sie Ihre Zeile aus.");
-        int eingabe2 = scanner.nextInt();
-        int eingabe1Int;
-        if (eingabe1.equalsIgnoreCase("a")) {
-            eingabe1Int = 0;
-        } else if (eingabe1.equalsIgnoreCase("b")) {
-            eingabe1Int = 1;
-        } else {
-            eingabe1Int = 2;
-        }
 
-
-        spielFeld[eingabe1Int][eingabe2 - 1]= "0";
-        System.out.println(eingabe2 - 1);
     }
     public static void spieler2(Scanner scanner){
-
-        System.out.println("Spieler 2: Wählen Sie Ihre Spalte aus.");
-        String eingabe1 = scanner.next();
-        System.out.println("Wählen Sie Ihre Zeile aus.");
-        int eingabe2 = scanner.nextInt();
-        int eingabe1Int;
-        if (eingabe1.equalsIgnoreCase("a")) {
-            eingabe1Int = 0;
-        } else if (eingabe1.equalsIgnoreCase("b")) {
-            eingabe1Int = 1;
-        } else {
-            eingabe1Int = 2;
-        }
-
-
-        spielFeld[eingabe1Int][eingabe2 - 1]= "X";
-        System.out.println(eingabe2 - 1);
+        boolean okay = false;
+        do {
+            okay = false;
+            System.out.println("Spieler 2: Wählen Sie Ihre Spalte aus.");
+            String eingabe1 = scanner.next();
+            System.out.println("Wählen Sie Ihre Zeile aus.");
+            int eingabe2 = scanner.nextInt();
+            int eingabe1Int = 0;
+            if (eingabe1.equalsIgnoreCase("a") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+                eingabe1Int = 0;
+            } else if (eingabe1.equalsIgnoreCase("b") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+                eingabe1Int = 1;
+            } else if (eingabe1.equalsIgnoreCase("c") && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("0")) && (!Arrays.asList(spielFeld[eingabe1Int][eingabe2-1]).contains("X"))) {
+                eingabe1Int = 2;
+            } else {
+                System.out.println("Dieses Feld ist schon besetzt, bitte wählen Sie ein anderes.");
+                okay = true;
+            }
+            spielFeld[eingabe1Int][eingabe2 - 1]= "X";
+        } while (okay);
     }
 
     public static Boolean ueberpruefung(Boolean spielen) {

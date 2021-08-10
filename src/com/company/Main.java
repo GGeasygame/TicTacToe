@@ -13,12 +13,13 @@ public static String[][] spielFeld;
 
         Boolean spielen = true;
         while (spielen) {
+            spieler1(scanner);
             System.out.println( spielFeld[0][0] + "  |  " + spielFeld[1][0]   + "  |  " + spielFeld[2][0] );
             System.out.println("---------------------------------------");
             System.out.println( spielFeld[0][1]  + "  |  " + spielFeld[1][1]   + "  |  " + spielFeld[2][1] );
             System.out.println("---------------------------------------");
             System.out.println( spielFeld[0][2]  + "  |  " + spielFeld[1][2]   + "  |  " + spielFeld[2][2] );
-            spieler1(spielFeld, scanner);
+            spieler1(scanner);
 
 
 
@@ -26,12 +27,21 @@ public static String[][] spielFeld;
 
         }
     }
-    public static int spieler1(String[][] spielFeld, Scanner scanner){
+    public static void spieler1(Scanner scanner){
 
-        System.out.println("Wählen Sie das Eingabefeld aus.");
+        System.out.println("Wählen Sie Ihre Spalte aus.");
         String eingabe1 = scanner.next();
-        String eingabe2 = scanner.next();
-        spielFeld[eingabe1]= "0";
+        System.out.println("Wählen Sie Ihre Zeile aus.");
+        int eingabe2 = scanner.nextInt();
+        int eingabe1Int;
+        if (eingabe1.equalsIgnoreCase("a")) {
+            eingabe1Int = 0;
+        } else if (eingabe1.equalsIgnoreCase("b")) {
+            eingabe1Int = 1;
+        } else {
+            eingabe1Int = 2;
+        }
+        spielFeld[eingabe1Int][eingabe2 - 1]= "0";
 
 
 
